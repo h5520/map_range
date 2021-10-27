@@ -1,6 +1,6 @@
 {
     "name": "houzhonghua/map_range",
-    "description": "Calculate the range and distance according to longitude and latitude.",
+    "description": "根据经纬度获取范围和计算相隔距离",
     "type": "library",
     "license": "MIT",
     "authors": [
