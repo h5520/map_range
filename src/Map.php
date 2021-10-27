@@ -47,12 +47,12 @@ class Map
 	    $maxLng = $this->lng + $radiusLng; //得到最大经度
 
 	    // 范围
-	    $range = array(
-	            'minLat' => $minLat,
-	            'maxLat' => $maxLat,
-	            'minLng' => $minLng,
-	            'maxLng' => $maxLng
-	    );
+	    $range = [
+            'minLat' => $minLat,
+            'maxLat' => $maxLat,
+            'minLng' => $minLng,
+            'maxLng' => $maxLng
+	    ];
 
 	    return $range;
 	}   

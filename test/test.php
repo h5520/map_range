@@ -19,7 +19,7 @@ class Citicbank extends BaseController
         print_r($range);
         print_r($distance);
     }
-    
+
     public function storelist(Request $request){
 
         $input = $request->param();
@@ -33,7 +33,7 @@ class Citicbank extends BaseController
         $result = $map->GetRange($lat,$lng,100*1000);
         
         $where[] = ['lat','between',"{$result['minLat']},{$result['maxLat']}"];
-        $where[] = ['lng','between',"{$result['minLon']},{$result['maxLon']}"];
+        $where[] = ['lng','between',"{$result['minLng']},{$result['maxLng']}"];
         $storelist = Brandlist::where($where)->select()->toArray();
 
         //算距离
