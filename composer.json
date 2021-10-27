@@ -1,0 +1,21 @@
+{
+    "name": "houzhonghua/mapRange",
+    "description": "Calculate the range and distance according to longitude and latitude.",
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "houzhonghua",
+            "email": "killerweb@sina.com"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {
+        "php": ">=7.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "houzhonghua\\mapRange\\": "src/"
+        }
+    }
+}
