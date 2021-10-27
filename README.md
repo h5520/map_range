@@ -15,7 +15,7 @@ use houzhonghua\map_range\Map;
 $query = new Map($lat,$lng);
 $res = $query->GetRange(200); // 200 公里
 
-//查询条件
+// 查询条件
 $where[] = ['lat','between',"{$result['minLat']},{$result['maxLat']}"];
 $where[] = ['lng','between',"{$result['minLng']},{$result['maxLng']}"];
 $storelist = Brandlist::where($where)

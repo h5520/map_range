@@ -29,14 +29,14 @@ class Test extends BaseController
 
         $map = new Map($lat,$lng);
 
-        //查询条件
+        // 查询条件
         $result = $map->GetRange($lat,$lng,100*1000);
         
         $where[] = ['lat','between',"{$result['minLat']},{$result['maxLat']}"];
         $where[] = ['lng','between',"{$result['minLng']},{$result['maxLng']}"];
         $storelist = Brandlist::where($where)->select()->toArray();
 
-        //算距离
+        // 算距离
         foreach($storelist as $k => &$v){
 
             $sort[$k] = $v['distance'] = $map->distanceBetween($lat, $lng, $v['lat'], $v['lng']);
