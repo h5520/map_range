@@ -5,7 +5,7 @@ namespace app\index\controller;
 use app\index\BaseController;
 use houzhonghua\map_range\Map;
 
-class Citicbank extends BaseController
+class Test extends BaseController
 {   
     public function test(){
 
@@ -20,7 +20,7 @@ class Citicbank extends BaseController
         print_r($distance);
     }
 
-    public function storelist(Request $request){
+    public function list(Request $request){
 
         $input = $request->param();
 
