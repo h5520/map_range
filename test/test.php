@@ -3,7 +3,7 @@
 
 namespace app\index\controller;
 use app\index\BaseController;
-use houzhonghua\mapRange\Map;
+use houzhonghua\map_range\Map;
 
 class Citicbank extends BaseController
 {   

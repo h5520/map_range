@@ -7,7 +7,7 @@ composer require houzhonghua/map_range dev-main
 ## 引入
 
 ```php
-use houzhonghua\mapRange\Map;
+use houzhonghua\map_range\Map;
 ```
 
 ## 调用生成范围方法
