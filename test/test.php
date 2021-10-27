@@ -6,7 +6,20 @@ use app\index\BaseController;
 use houzhonghua\mapRange\Map;
 
 class Citicbank extends BaseController
-{
+{   
+    public function test(){
+
+        $lat = 39.899722; // 维度
+        $lng = 116.484974; // 经度
+
+        $map = new Map($lat,$lng);
+        $range = $map->GetRange(100);
+        $distance = $map->distanceBetween("39.90232", "116.484821");
+
+        print_r($range);
+        print_r($distance);
+    }
+    
     public function storelist(Request $request){
 
         $input = $request->param();
@@ -14,7 +27,7 @@ class Citicbank extends BaseController
         $lat = $input['lat']; // 维度
         $lng = $input['lng']; // 经度
 
-        $map = new Map($lat,$ing);
+        $map = new Map($lat,$lng);
 
         //查询条件
         $result = $map->GetRange($lat,$lng,100*1000);

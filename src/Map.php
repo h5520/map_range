@@ -1,5 +1,5 @@
 <?php
-namespace houzhonghua\map;
+namespace houzhonghua\map_range;
 
 class Map
 {
@@ -18,7 +18,7 @@ class Map
 	public function __construct($lat,$lng)
 	{
 		$this->lat = $lat;
-		$this->lon = $lng;
+		$this->lng = $lng;
 	}
 
 	/**
@@ -36,22 +36,22 @@ class Map
 	    $degree = (24901 * 1609) / 360.0;
 	    $dpmLat = 1 / $degree;
 	    $radiusLat = $dpmLat * $raidus;
-	    $minLat = $this->$lat - $radiusLat; //得到最小纬度
-	    $maxLat = $this->$lat + $radiusLat; //得到最大纬度
+	    $minLat = $this->lat - $radiusLat; //得到最小纬度
+	    $maxLat = $this->lat + $radiusLat; //得到最大纬度
 
 	    // 计算经度
-	    $mpdLng = $degree * cos($this->$lat * (PI() / 180));
+	    $mpdLng = $degree * cos($this->lat * (PI() / 180));
 	    $dpmLng = 1 / $mpdLng;
 	    $radiusLng = $dpmLng * $raidus;
-	    $minLng = $this->$lng - $radiusLng; //得到最小经度
-	    $maxLng = $this->$lng + $radiusLng; //得到最大经度
+	    $minLng = $this->lng - $radiusLng; //得到最小经度
+	    $maxLng = $this->lng + $radiusLng; //得到最大经度
 
 	    // 范围
 	    $range = array(
 	            'minLat' => $minLat,
 	            'maxLat' => $maxLat,
-	            'minLon' => $minLng,
-	            'maxLon' => $maxLng
+	            'minLng' => $minLng,
+	            'maxLng' => $maxLng
 	    );
 
 	    return $range;
@@ -62,22 +62,22 @@ class Map
 	 * @Author   HOU
 	 * @DateTime 2021-10-27T11:38:28+0800
 	 * @param    [type]  $fP2Lat 固定地点的纬度
-	 * @param    [type]  $fP2Lon 固定地点的经度
+	 * @param    [type]  $fP2lng 固定地点的经度
 	 * @return   [type]  距离 km
 	 */
-	public function distanceBetween($fP2Lat, $fP2Lon){
+	public function distanceBetween($fP2Lat, $fP2lng){
 
 	    $fEARTH_RADIUS = 6378137;
 
 	    // 角度换算成弧度
-	    $fRadLon1 = deg2rad($this->$lng);
-	    $fRadLon2 = deg2rad($fP2Lon);
-	    $fRadLat1 = deg2rad($this->$lat);
+	    $fRadlng1 = deg2rad($this->lng);
+	    $fRadlng2 = deg2rad($fP2lng);
+	    $fRadLat1 = deg2rad($this->lat);
 	    $fRadLat2 = deg2rad($fP2Lat);
 
 	    // 计算经纬度的差值
 	    $fD1 = abs($fRadLat1 - $fRadLat2);
-	    $fD2 = abs($fRadLon1 - $fRadLon2);
+	    $fD2 = abs($fRadlng1 - $fRadlng2);
 
 	    // 距离计算
 	    $fP = pow(sin($fD1/2), 2) +
